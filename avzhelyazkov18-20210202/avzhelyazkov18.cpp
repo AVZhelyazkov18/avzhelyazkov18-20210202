@@ -12,28 +12,12 @@ void initLaptops(vector<LAPTOP> &laptops)
 	laptop1.CPU = "Intel I7";
 	laptop1.GPU = "Geforce 960M";
 
-	LAPTOP laptop2;
-	laptop2.mf = "Lenovo";
-	laptop2.dateOfRelease = 2018;
-	laptop2.CPU = "Intel I5";
-	laptop2.GPU = "Geforce 1050Ti";
+	laptops.push_back(laptop1);
+	laptops.push_back({ "MSI", "Intel Core I7", "Geforce 2060", 2020 });
+	laptops.push_back({ "MSI1", "Intel Core I7", "Geforce 2060", 2020 });
+	laptops.push_back({ "MSI2", "Intel Core I7", "Geforce 2060", 2020 });
+	laptops.push_back({ "MSI3", "Intel Core I7", "Geforce 2060", 2020 });
 
-	LAPTOP laptop3;
-	laptop3.mf = "Asus";
-	laptop3.dateOfRelease = 2016;
-	laptop3.CPU = "Intel I5";
-	laptop3.GPU = "Geforce 940M";
-
-	LAPTOP laptop4;
-	laptop4.mf = "MSI";
-	laptop4.dateOfRelease = 2020;
-	laptop4.CPU = "Intel I7";
-	laptop4.GPU = "Geforce 2060";
-
-	laptops[0] = laptop1;
-	laptops[1] = laptop2;
-	laptops[2] = laptop3;
-	laptops[3] = laptop4;
 }
 
 void showLaptop(vector<LAPTOP>& laptops,int index)
@@ -43,15 +27,16 @@ void showLaptop(vector<LAPTOP>& laptops,int index)
 }
 
 void createLaptop(vector<LAPTOP>& laptops, LAPTOP laptop) {
-	size_t size = laptops.size();
-	laptops.at(size + 1) = laptop;
+	laptops.push_back(laptop);
 }
 
 LAPTOP enterLaptop(LAPTOP laptop) {
 	cout << "Enter Manufacturer: "; cin >> laptop.mf;
+	cin.ignore();
 	cout << "CPU Example: (Intel I7/I5)" << endl;
 	cout << "Enter CPU: "; getline(cin, laptop.CPU);
 	cout << "GPU Example: (Geforce 970M/1050Ti/960M/etc.)" << endl;
+	cin.ignore();
 	cout << "Enter GPU: "; getline(cin, laptop.GPU);
 	cout << "Enter Date Of Release: "; cin >> laptop.dateOfRelease;
 	return laptop;
@@ -66,13 +51,16 @@ void showLaptops(vector<LAPTOP>& laptops) {
 
 vector<LAPTOP> findGPUsByLaptop(vector<LAPTOP>& laptops) {
 	string chosenCPU;
+	vector<LAPTOP> foundLaptops = {};
+
 	cout << "Example: (AMD/Intel)" << endl;
 	cout << "Choose what type of cpu to find: "; cin >> chosenCPU;
-	vector<LAPTOP> foundLaptops = {};
+
 	for (int i = 0; i < laptops.size(); i++) {
 		if (laptops.at(i).CPU.find(chosenCPU)) {
 			foundLaptops.at(foundLaptops.size() + 1) = laptops.at(i);
 		}
 	}
+
 	return foundLaptops;
 }
