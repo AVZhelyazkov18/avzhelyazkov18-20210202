@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="avzhelyazkov18.cpp" />
+    <ClCompile Include="project.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="avzhelyazkov18.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

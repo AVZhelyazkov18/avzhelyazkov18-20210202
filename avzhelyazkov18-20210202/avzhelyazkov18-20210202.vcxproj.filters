@@ -18,5 +18,13 @@
     <ClCompile Include="avzhelyazkov18.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="project.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="avzhelyazkov18.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
