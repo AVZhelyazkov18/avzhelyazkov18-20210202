@@ -63,3 +63,16 @@ void showLaptops(vector<LAPTOP>& laptops) {
 			showLaptop(laptops, i);
 	}
 }
+
+vector<LAPTOP> findGPUsByLaptop(vector<LAPTOP>& laptops) {
+	string chosenCPU;
+	cout << "Example: (AMD/Intel)" << endl;
+	cout << "Choose what type of cpu to find: "; cin >> chosenCPU;
+	vector<LAPTOP> foundLaptops = {};
+	for (int i = 0; i < laptops.size(); i++) {
+		if (laptops.at(i).CPU.find(chosenCPU)) {
+			foundLaptops.at(foundLaptops.size() + 1) = laptops.at(i);
+		}
+	}
+	return foundLaptops;
+}

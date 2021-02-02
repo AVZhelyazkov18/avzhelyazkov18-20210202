@@ -11,4 +11,10 @@ int main()
 	LAPTOP chosenLaptop;
 
 	initLaptops(laptops);
+	showLaptops(laptops);
+	chosenLaptop = enterLaptop(chosenLaptop);
+	createLaptop(laptops,chosenLaptop);
+	showLaptops(laptops);
+	findGPUsByLaptop(laptops);
+	showLaptops(laptops);
 }
